@@ -1,14 +1,24 @@
-fn main (){
-   //simple array
-    let array :[u8; 3]=[1, 2, 3]; // u8type of  array of 3 item
-    let array_2:[u8; 5]=[100; 5]; // u8 type of array where each item has item 100 up to 5th place
-    println!("index:{}, length:{}", array[0], array_2.len());
+// tuples : A is like a mixed box that can hold different types of things together! like char num boolean etc.
 
-    // printing the structure of array and other objects
-    println!("{:?}", array); // pprint whole array
-    println!("{}", array[1]);// print specific item of resepctive index
-    println!("{}", array[0]);
-    println!("{}", array[2]);
-println!("{}", array_2[4]);
+ fn main(){
 
-}
+    let person=("ram", 1, true);
+
+        // Access items using .0, .1, .2 (starts at 0)
+        println!("Name  :{}" , person.0);
+        println!("Rollno:{}" , person.1);
+        println!("student:{}" , person.2);
+ }
+ 
+      // Empty tuple (called "unit")
+    let empty = ();
+
+    // With 2 items
+    let pair = ("hello", 42);
+
+    // With 3 items  
+    let triple = (10, 20.5, "world");
+
+    // Destructuring (unpacking)
+    let (x, y, z) = triple;
+    println!("{} {} {}", x, y, z);  // → 10 20.5 world
