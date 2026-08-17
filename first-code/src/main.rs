@@ -1,16 +1,30 @@
 fn main(){
-let first : &str=" Hello everyone";
+   // for loop 
+//  let n=10;
+//  if n>0{
+//     println!("It is greater than 0");
+//  }
+// else if n<0{
+//     println!("It is less than 0");
+// }
+// else {
+//     println!("The number is 0");
+// }
 
-let mut second: String= String::from ("How are you");
+// for loop similar to python
+// for i in 0..7{
+//     println!("{}" , i);
+// }
 
-let slice =&second[..6];// slcie form index starting to 6( excluding 6)
-println!("slice: {}", slice);
-println!("slice length:{}", slice.len());
-second.push('1');
-// string.push_first("!");// old
-second.insert(0, '!');
-println!("After inserting : {}", second);
-second= second.replace("How", "Guys");
-println!("After inserting : {}", second);
 
+// while loop
+let mut  i = 0;
+while i<6{
+    println!("{}", i);
+    i+= 1;
+    if i ==3{
+        println!("exit");
+        break // break or  contine to terminate the execution
+    }
+}
 }
