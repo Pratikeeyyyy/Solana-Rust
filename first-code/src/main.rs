@@ -1,25 +1,41 @@
-// HashMap = A key-value store where you can look up values by their keys. Like a dictionary!
+// option 
+// None  is used to indicate failure or lack of values 
+// some (value ) is a tuple structure that wraps a value with type T.
 
-// Think of it like a real dictionary — you look up a word (key) to find its definition (value).
-
-//  importin the hasmap form lbrary
-use std::collections::HashMap;
-
-fn main(){
-    let mut egmap = HashMap::new();
-
-    egmap.insert(0,"Hello");
-    egmap.insert(1,"Everyone");
-    println!("{:?}", egmap);
-
-    match egmap.get(&0){
-        Some(str) => println!("{}", str),
-        None=>println!("Doesnt exist in map "),}
-
- match egmap.get(&2){
-        Some(str) => println!("{}", str),
-        None=>println!("Doesnt exist in map "),}
-
-        egmap.remove(&0);
-        println!("{:?}",egmap);
+fn divide(dividend: i32, divisor: i32) -> Option<i32> {
+    if dividend % divisor != 0 {
+        None
+    } else {
+        Some(dividend / divisor)
     }
+}
+
+fn main() {
+    let divide1: Option<i32> = divide(4, 2);
+    let _divide2: Option<i32> = divide(2, 3);
+
+    // un wrapping a Some varient will extract the value wrapped.
+    println!("{:?} unwraps to {}", divide1, divide1.unwrap());
+    // unwrapping a None varient will panic!.
+    // println!("{:?} unnwraps to {}" , divide2, divide2.unwrap())
+    
+    // Call the function here
+    Don();
+}
+
+fn Don() {
+    let score: Option<i32> = Some(85);
+    let no_score: Option<i32> = None;
+    
+    match score {
+        Some(value) => println!("Score is: {}", value),
+        None => println!("No score available"),
+    }
+    // Output: Score is: 85
+    
+    match no_score {
+        Some(value) => println!("Score is: {}", value),
+        None => println!("No score available"),
+    }
+    // Output: No score available
+}
