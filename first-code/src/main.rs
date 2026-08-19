@@ -1,11 +1,25 @@
-// vector: Vector = A growable array that can hold multiple values of the SAME type.
-// Think of it like a shopping list — you can add, remove, and access items, and it automatically grows as you add more!
+// HashMap = A key-value store where you can look up values by their keys. Like a dictionary!
+
+// Think of it like a real dictionary — you look up a word (key) to find its definition (value).
+
+//  importin the hasmap form lbrary
+use std::collections::HashMap;
 
 fn main(){
-let mut vec: Vec<i64> = vec![1,2,3,4,5,6];
- vec.len();
- vec[0];
- vec.push(6);
- vec.remove(0);
- println!("{:?}", vec);
-}
+    let mut egmap = HashMap::new();
+
+    egmap.insert(0,"Hello");
+    egmap.insert(1,"Everyone");
+    println!("{:?}", egmap);
+
+    match egmap.get(&0){
+        Some(str) => println!("{}", str),
+        None=>println!("Doesnt exist in map "),}
+
+ match egmap.get(&2){
+        Some(str) => println!("{}", str),
+        None=>println!("Doesnt exist in map "),}
+
+        egmap.remove(&0);
+        println!("{:?}",egmap);
+    }
