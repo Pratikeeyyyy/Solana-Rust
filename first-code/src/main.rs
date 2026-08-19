@@ -1,35 +1,27 @@
-// struct
+// Enu = Short for Enumeration = A way to define a type by listing all possible values it can be.
+// like a dropdowm nenu with fixed options.
+
+#[derive (Debug)]
+enum Myenum{
+    A,
+    B(i32),
+    C{x:i32, y:i32}
+}
+
 fn main(){
-let name = String::from("Anaconda");
-let creature = animal{name, attribute:69 };
-creature.print_name();
+    let a: Myenum = Myenum:: A;
+    let b: Myenum = Myenum:: B(5);
+    let c: Myenum = Myenum :: C{x: 10 , y:20};
+    println!("{:?}",a);
+    println!("{:?}",b);
+    println!("{:?}" ,c);
 
-   println!("Lays egg: {}", creature.lay_egg());
-    println!("No egg: {}", creature.no_egg());
-}
-struct animal {
-    name :String,
-    attribute:u64,
-}
 
-impl animal{
-    fn print_name (&self){
-        println!("{}", self.name);
-    }
-}
 
-// traits
-trait Bird {
-    fn lay_egg(&self) -> bool;  // No default implementation
-    fn no_egg(&self) -> bool;   // No default implementation
+if let Myenum ::B(value)= b {
+    println!("{}", value);
 }
-
-impl Bird for animal {
-    fn lay_egg(&self) -> bool {
-        true  // Anaconda lays eggs
-    }
-    
-    fn no_egg(&self) -> bool {
-        false  // Anaconda does lay eggs, so no_egg is false
-    }
+if let Myenum ::C{x,y}=c{
+    println!("{} {}" , x,y)
+}
 }
