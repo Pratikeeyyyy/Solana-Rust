@@ -1,8 +1,5 @@
 ## Basics Branch Created!
 
-## Basics Branch Created!
-
-
 ## git checkout basics
 
 ## git pull origin basics
