@@ -1,41 +1,34 @@
-// option 
-// None  is used to indicate failure or lack of values 
-// some (value ) is a tuple structure that wraps a value with type T.
 
-fn divide(dividend: i32, divisor: i32) -> Option<i32> {
+// Result 
+
+// use std:: collections::HashMap;
+#[derive(Debug)]  
+enum MyError{
+    Error1
+}
+// err, an enum that contains an error code
+// ok (value) , A weapper that contains a value
+
+fn divide(dividend: i32, divisor: i32) -> Result<i32, MyError> {
     if dividend % divisor != 0 {
-        None
+        Err(MyError::Error1)
     } else {
-        Some(dividend / divisor)
+        Ok(dividend / divisor)
     }
 }
 
-fn main() {
-    let divide1: Option<i32> = divide(4, 2);
-    let _divide2: Option<i32> = divide(2, 3);
-
-    // un wrapping a Some varient will extract the value wrapped.
-    println!("{:?} unwraps to {}", divide1, divide1.unwrap());
-    // unwrapping a None varient will panic!.
-    // println!("{:?} unnwraps to {}" , divide2, divide2.unwrap())
-    
-    // Call the function here
-    Don();
-}
-
-fn Don() {
-    let score: Option<i32> = Some(85);
-    let no_score: Option<i32> = None;
-    
-    match score {
-        Some(value) => println!("Score is: {}", value),
-        None => println!("No score available"),
+fn main(){
+    let divide = divide(4,2);
+    // let res= divide2.expect ("We crashed");
+    match divide{
+        Ok(v)=> println!("{}", v),  // ← FIXED: "ok" → "Ok" (capital O)
+        Err(v)=> println!("{:?}" ,v)  // ← Now works because of #[derive(Debug)]
     }
-    // Output: Score is: 85
-    
-    match no_score {
-        Some(value) => println!("Score is: {}", value),
-        None => println!("No score available"),
-    }
-    // Output: No score available
+    // if divide.is_ok(){
+//     println!("{}", divide.unwrap());
+// }
+// println!("{}", divide.unwrap());
+// println!("{}", divide.unwrap_or(100));
+// println!("{}", res)
+
 }
